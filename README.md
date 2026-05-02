@@ -1,16 +1,16 @@
 # Azure Container Registry (microsoft-azure-container-registry)
-Azure Container Registry is a managed Docker registry service for storing and managing container images and artifacts.
+Azure Container Registry is a managed, private Docker registry service for storing and managing container images, Helm charts, and OCI artifacts. This collection documents the REST APIs for repository management, image distribution, geo-replication, task-based builds, and webhook notifications used across cloud-native workloads.
 
 **URL:** [Visit APIs.json URL](https://raw.githubusercontent.com/api-evangelist/microsoft-azure-container-registry/refs/heads/main/apis.yml)
 
 ## Tags:
 
- - Containers, Docker, Registry
+ - Containers, Docker, Registry, Container Images
 
 ## Timestamps
 
 - **Created:** 2026-03-13
-- **Modified:** 2026-03-13
+- **Modified:** 2026-04-28
 
 ## APIs
 
