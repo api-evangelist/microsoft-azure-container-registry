@@ -1,6 +1,5 @@
 aid: microsoft-azure-container-registry
-url: 
-  https://raw.githubusercontent.com/api-evangelist/microsoft-azure-container-registry/refs/heads/main/apis.yml
+url: https://raw.githubusercontent.com/api-evangelist/microsoft-azure-container-registry/refs/heads/main/apis.yml
 apis:
   - aid: microsoft-azure-container-registry:azure-container-registry-api
     name: Azure Container Registry API
@@ -9,11 +8,12 @@ apis:
       - Docker
       - Registry
       - Container Images
-    image: 
-      https://kinlane-productions2.s3.amazonaws.com/apis-json/apis-json-logo.jpg
+    image: https://kinlane-productions2.s3.amazonaws.com/apis-json/apis-json-logo.jpg
     baseURL: https://{registry}.azurecr.io/
     humanURL: https://learn.microsoft.com/en-us/rest/api/containerregistry/
     properties:
+      - url: openapi/microsoft-azure-container-registry-openapi.yml
+        type: OpenAPI
       - url: https://learn.microsoft.com/en-us/rest/api/containerregistry/
         type: Documentation
     description: >-

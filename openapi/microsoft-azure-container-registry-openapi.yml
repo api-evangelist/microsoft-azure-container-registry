@@ -1,0 +1,144 @@
+openapi: 3.1.0
+info:
+  title: Azure Container Registry REST API
+  description: Azure Container Registry data plane API implements the OCI Distribution Specification for
+    managing container images and artifacts. Operations include listing repositories, tags, manifests,
+    and blobs.
+  version: v2
+externalDocs:
+  description: Azure Container Registry REST API Documentation
+  url: https://learn.microsoft.com/en-us/rest/api/containerregistry/
+servers:
+- url: https://{registry}.azurecr.io
+  variables:
+    registry:
+      default: myregistry
+tags:
+- name: Repositories
+- name: Tags
+- name: Manifests
+- name: Blobs
+security:
+- bearerAuth: []
+paths:
+  /v2/_catalog:
+    get:
+      operationId: listRepositories
+      summary: ACR List repositories
+      description: Lists repositories in the registry.
+      tags:
+      - Repositories
+      responses:
+        '200':
+          description: Repository list
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  repositories:
+                    type: array
+                    items:
+                      type: string
+  /v2/{name}/tags/list:
+    parameters:
+    - name: name
+      in: path
+      required: true
+      schema:
+        type: string
+    get:
+      operationId: listTags
+      summary: ACR List tags
+      description: Lists tags for a repository.
+      tags:
+      - Tags
+      responses:
+        '200':
+          description: Tag list
+          content:
+            application/json:
+              schema:
+                type: object
+  /v2/{name}/manifests/{reference}:
+    parameters:
+    - name: name
+      in: path
+      required: true
+      schema:
+        type: string
+    - name: reference
+      in: path
+      required: true
+      schema:
+        type: string
+    get:
+      operationId: getManifest
+      summary: ACR Get manifest
+      description: Gets a manifest by tag or digest.
+      tags:
+      - Manifests
+      responses:
+        '200':
+          description: Manifest
+          content:
+            application/vnd.docker.distribution.manifest.v2+json:
+              schema:
+                type: object
+    put:
+      operationId: putManifest
+      summary: ACR Put manifest
+      description: Pushes a manifest.
+      tags:
+      - Manifests
+      requestBody:
+        required: true
+        content:
+          application/vnd.docker.distribution.manifest.v2+json:
+            schema:
+              type: object
+      responses:
+        '201':
+          description: Manifest stored
+    delete:
+      operationId: deleteManifest
+      summary: ACR Delete manifest
+      description: Deletes a manifest.
+      tags:
+      - Manifests
+      responses:
+        '202':
+          description: Deleted
+  /v2/{name}/blobs/{digest}:
+    parameters:
+    - name: name
+      in: path
+      required: true
+      schema:
+        type: string
+    - name: digest
+      in: path
+      required: true
+      schema:
+        type: string
+    get:
+      operationId: getBlob
+      summary: ACR Get blob
+      description: Retrieves a blob by digest.
+      tags:
+      - Blobs
+      responses:
+        '200':
+          description: Blob
+          content:
+            application/octet-stream:
+              schema:
+                type: string
+                format: binary
+components:
+  securitySchemes:
+    bearerAuth:
+      type: http
+      scheme: bearer
+x-generated-from: https://learn.microsoft.com/en-us/rest/api/containerregistry/
+x-generated-by: claude-crawl-2026-05-08
