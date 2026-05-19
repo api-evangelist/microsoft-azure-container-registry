@@ -1,0 +1,70 @@
+naftiko: 1.0.0-alpha2
+info:
+  label: Azure Container Registry REST API — Blobs
+  description: 'Azure Container Registry REST API — Blobs. 1 operations. Lead operation: ACR Get blob. Self-contained Naftiko
+    capability covering one Microsoft Azure Container Registry business surface.'
+  tags:
+  - Microsoft Azure Container Registry
+  - Blobs
+  created: '2026-05-19'
+  modified: '2026-05-19'
+binds:
+- namespace: env
+  keys:
+    MICROSOFT_AZURE_CONTAINER_REGISTRY_API_KEY: MICROSOFT_AZURE_CONTAINER_REGISTRY_API_KEY
+capability:
+  consumes:
+  - type: http
+    namespace: microsoft-azure-container-registry-blobs
+    baseUri: https://{registry}.azurecr.io
+    description: Azure Container Registry REST API — Blobs business capability. Self-contained, no shared references.
+    resources:
+    - name: v2-name-blobs-digest
+      path: /v2/{name}/blobs/{digest}
+      operations:
+      - name: getblob
+        method: GET
+        description: ACR Get blob
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+    authentication:
+      type: bearer
+      token: '{{env.MICROSOFT_AZURE_CONTAINER_REGISTRY_API_KEY}}'
+  exposes:
+  - type: rest
+    namespace: microsoft-azure-container-registry-blobs-rest
+    port: 8080
+    description: REST adapter for Azure Container Registry REST API — Blobs. One Spectral-compliant resource per consumed
+      operation, prefixed with /v1.
+    resources:
+    - path: /v1/v2/{name}/blobs/{digest}
+      name: v2-name-blobs-digest
+      description: REST surface for v2-name-blobs-digest.
+      operations:
+      - method: GET
+        name: getblob
+        description: ACR Get blob
+        call: microsoft-azure-container-registry-blobs.getblob
+        outputParameters:
+        - type: object
+          mapping: $.
+  - type: mcp
+    namespace: microsoft-azure-container-registry-blobs-mcp
+    port: 9090
+    transport: http
+    description: MCP adapter for Azure Container Registry REST API — Blobs. One tool per consumed operation, routed inline
+      through this capability's consumes block.
+    tools:
+    - name: acr-get-blob
+      description: ACR Get blob
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: true
+      call: microsoft-azure-container-registry-blobs.getblob
+      outputParameters:
+      - type: object
+        mapping: $.
