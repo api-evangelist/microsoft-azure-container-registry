@@ -21,6 +21,10 @@ apis:
       supports geo-replication, image scanning, task-based builds, webhook notifications, and integration with Azure
       Kubernetes Service and other container platforms.
 common:
+  - type: DomainSecurity
+    url: security/microsoft-azure-container-registry-domain-security.yml
+  - type: Authentication
+    url: authentication/microsoft-azure-container-registry-authentication.yml
   - type: GitHubOrganization
     url: https://github.com/AzureCR
   - type: Portal
@@ -43,3 +47,5 @@ description: >-
   Azure Container Registry is a managed, private Docker registry service for storing and managing container images, Helm
   charts, and OCI artifacts. This collection documents the REST APIs for repository management, image distribution,
   geo-replication, task-based builds, and webhook notifications used across cloud-native workloads.
+  - url: https://azure.microsoft.com/en-us/blog/containers-docker-windows-and-trends/
+    type: Blog
