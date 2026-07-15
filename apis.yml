@@ -21,6 +21,8 @@ apis:
       supports geo-replication, image scanning, task-based builds, webhook notifications, and integration with Azure
       Kubernetes Service and other container platforms.
 common:
+  - type: AgenticAccess
+    url: agentic-access/microsoft-azure-container-registry-agentic-access.yml
   - type: DomainSecurity
     url: security/microsoft-azure-container-registry-domain-security.yml
   - type: Authentication
