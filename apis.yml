@@ -1,25 +1,70 @@
 aid: microsoft-azure-container-registry
+accessModel:
+  pricing: freemium
+  onboarding: self-serve
+  trial: false
+  try_now: true
+  public: false
+  label: Freemium · Self-serve signup
+  confidence: high
+  source:
+  - plans
+  - authentication
+  generated: '2026-07-22'
+  method: derived
+image: https://kinlane-images.s3.amazonaws.com/shared/apis-json/icons/microsoft-azure-container-registry.png
 url: https://raw.githubusercontent.com/api-evangelist/microsoft-azure-container-registry/refs/heads/main/apis.yml
 apis:
-  - aid: microsoft-azure-container-registry:azure-container-registry-api
-    name: Azure Container Registry API
-    tags:
-      - Containers
-      - Docker
-      - Registry
-      - Container Images
-    image: https://kinlane-images.s3.amazonaws.com/shared/apis-json/apis-json-logo.jpg
-    baseURL: https://{registry}.azurecr.io/
-    humanURL: https://learn.microsoft.com/en-us/rest/api/containerregistry/
-    properties:
-      - url: openapi/microsoft-azure-container-registry-openapi.yml
-        type: OpenAPI
-      - url: https://learn.microsoft.com/en-us/rest/api/containerregistry/
-        type: Documentation
-    description: >-
-      Azure Container Registry provides REST APIs for managing container images, Helm charts, and OCI artifacts. It
-      supports geo-replication, image scanning, task-based builds, webhook notifications, and integration with Azure
-      Kubernetes Service and other container platforms.
+- aid: microsoft-azure-container-registry:microsoft-azure-container-registry-blobs-api
+  name: microsoft-azure-container-registry Blobs API
+  description: The Blobs API from microsoft-azure-container-registry — 1 operation(s) for blobs.
+  humanURL: https://learn.microsoft.com/en-us/rest/api/containerregistry/
+  baseURL: https://{registry}.azurecr.io/
+  tags:
+  - Blobs
+  properties:
+  - type: OpenAPI
+    url: openapi/microsoft-azure-container-registry-blobs-api-openapi.yml
+  - type: Documentation
+    url: https://learn.microsoft.com/en-us/rest/api/containerregistry/
+- aid: microsoft-azure-container-registry:microsoft-azure-container-registry-manifests-api
+  name: microsoft-azure-container-registry Manifests API
+  description: >-
+    The Manifests API from microsoft-azure-container-registry — 1 operation(s) for manifests.
+  humanURL: https://learn.microsoft.com/en-us/rest/api/containerregistry/
+  baseURL: https://{registry}.azurecr.io/
+  tags:
+  - Manifests
+  properties:
+  - type: OpenAPI
+    url: openapi/microsoft-azure-container-registry-manifests-api-openapi.yml
+  - type: Documentation
+    url: https://learn.microsoft.com/en-us/rest/api/containerregistry/
+- aid: microsoft-azure-container-registry:microsoft-azure-container-registry-repositories-api
+  name: microsoft-azure-container-registry Repositories API
+  description: >-
+    The Repositories API from microsoft-azure-container-registry — 1 operation(s) for repositories.
+  humanURL: https://learn.microsoft.com/en-us/rest/api/containerregistry/
+  baseURL: https://{registry}.azurecr.io/
+  tags:
+  - Repositories
+  properties:
+  - type: OpenAPI
+    url: openapi/microsoft-azure-container-registry-repositories-api-openapi.yml
+  - type: Documentation
+    url: https://learn.microsoft.com/en-us/rest/api/containerregistry/
+- aid: microsoft-azure-container-registry:microsoft-azure-container-registry-tags-api
+  name: microsoft-azure-container-registry Tags API
+  description: The Tags API from microsoft-azure-container-registry — 1 operation(s) for tags.
+  humanURL: https://learn.microsoft.com/en-us/rest/api/containerregistry/
+  baseURL: https://{registry}.azurecr.io/
+  tags:
+  - Tags
+  properties:
+  - type: OpenAPI
+    url: openapi/microsoft-azure-container-registry-tags-api-openapi.yml
+  - type: Documentation
+    url: https://learn.microsoft.com/en-us/rest/api/containerregistry/
 common:
   - type: AgenticAccess
     url: agentic-access/microsoft-azure-container-registry-agentic-access.yml
