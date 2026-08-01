@@ -1,0 +1,20 @@
+{
+  "provider": "microsoft-azure-container-registry",
+  "sources": [
+    "microsoft-azure-container-registry-blobs-api-openapi.yml",
+    "microsoft-azure-container-registry-manifests-api-openapi.yml",
+    "microsoft-azure-container-registry-repositories-api-openapi.yml",
+    "microsoft-azure-container-registry-tags-api-openapi.yml"
+  ],
+  "outputs": [
+    "microsoft-azure-container-registry-blobs-api-openapi.yml",
+    "microsoft-azure-container-registry-manifests-api-openapi.yml",
+    "microsoft-azure-container-registry-repositories-api-openapi.yml",
+    "microsoft-azure-container-registry-tags-api-openapi.yml"
+  ],
+  "archived": [],
+  "errors": [],
+  "warnings": [],
+  "notes": [],
+  "skipped": []
+}
