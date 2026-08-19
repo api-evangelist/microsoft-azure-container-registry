@@ -1,0 +1,168 @@
+{
+  "item": [
+    {
+      "id": "40fdc3c2-08f7-4f6f-aad1-e8c7e52273de",
+      "name": "Tags",
+      "description": {
+        "content": "",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "03ff6afe-7d3e-4b22-8227-809448000270",
+          "name": "ACR List tags",
+          "request": {
+            "name": "ACR List tags",
+            "description": {
+              "content": "Lists tags for a repository.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "v2",
+                ":name",
+                "tags",
+                "list"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "name",
+                  "description": "(Required) "
+                },
+                {
+                  "description": {
+                    "content": "",
+                    "type": "text/plain"
+                  },
+                  "type": "any",
+                  "value": "{{registry}}",
+                  "key": "registry"
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "b4317234-fad1-4303-916c-277197605802",
+              "name": "Tag list",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v2",
+                    ":name",
+                    "tags",
+                    "list"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "name",
+                      "description": "(Required) "
+                    },
+                    {
+                      "description": {
+                        "content": "",
+                        "type": "text/plain"
+                      },
+                      "type": "any",
+                      "value": "{{registry}}",
+                      "key": "registry"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    }
+  ],
+  "event": [],
+  "variable": [
+    {
+      "description": {
+        "content": "",
+        "type": "text/plain"
+      },
+      "type": "any",
+      "value": "myregistry",
+      "key": "registry"
+    },
+    {
+      "type": "string",
+      "value": "https://{{registry}}.azurecr.io",
+      "key": "baseUrl"
+    }
+  ],
+  "auth": {
+    "type": "bearer",
+    "bearer": [
+      {
+        "key": "token",
+        "value": "{{bearerToken}}"
+      }
+    ]
+  },
+  "info": {
+    "_postman_id": "2da9d93a-0e56-438e-aa2a-64b0f06e2992",
+    "name": "Azure Container Registry REST Blobs Tags API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "description": {
+      "content": "Azure Container Registry data plane API implements the OCI Distribution Specification for managing container images and artifacts. Operations include listing repositories, tags, manifests, and blobs.",
+      "type": "text/plain"
+    }
+  }
+}

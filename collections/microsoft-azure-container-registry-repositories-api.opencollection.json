@@ -1,0 +1,35 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "Azure Container Registry REST Blobs Repositories API",
+    "version": "v2"
+  },
+  "request": {
+    "auth": {
+      "type": "bearer",
+      "token": "{{bearerToken}}"
+    }
+  },
+  "items": [
+    {
+      "info": {
+        "name": "Repositories",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "ACR List repositories",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://{registry}.azurecr.io/v2/_catalog"
+          },
+          "docs": "Lists repositories in the registry."
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}
